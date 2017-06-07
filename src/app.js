@@ -1,5 +1,9 @@
 export class App {
   constructor() {
-    this.message = 'Hello World!';
+    this.message = 'XOR CALCULATOR';
+  }
+
+  xor(str){
+
   }
 }
