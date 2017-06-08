@@ -5,12 +5,23 @@ export class App {
 
   xor(str){
     var total;
-    var tempDigit;
+    var tempDigit='';
+    str=str+" ";
     for(var i = 0; i < str.length; i++){
-      if(isDigit(str.charAt(i))){
-        console.log("HELLOP")
+      if(!isNaN(str.charAt(i)) & str.charAt(i)!=" "){
+        tempDigit+=str.charAt(i);
+      }
+      else{
+        if(total!=null){
+          total^=Number(tempDigit);
+        }
+        else{
+          total=Number(tempDigit);
+        }
+        tempDigit='';
       }
     }
+    alert(total);
   }
 
 

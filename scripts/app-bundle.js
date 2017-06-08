@@ -1,5 +1,5 @@
-define('app',["exports"], function (exports) {
-  "use strict";
+define('app',['exports'], function (exports) {
+  'use strict';
 
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -20,12 +20,21 @@ define('app',["exports"], function (exports) {
 
     App.prototype.xor = function xor(str) {
       var total;
-      var tempDigit;
+      var tempDigit = '';
+      str = str + " ";
       for (var i = 0; i < str.length; i++) {
-        if (isDigit(str.charAt(i))) {
-          console.log("HELLOP");
+        if (!isNaN(str.charAt(i)) & str.charAt(i) != " ") {
+          tempDigit += str.charAt(i);
+        } else {
+          if (total != null) {
+            total ^= Number(tempDigit);
+          } else {
+            total = Number(tempDigit);
+          }
+          tempDigit = '';
         }
       }
+      alert(total);
     };
 
     return App;
@@ -83,5 +92,5 @@ define('resources/index',["exports"], function (exports) {
   exports.configure = configure;
   function configure(config) {}
 });
-define('text!app.html', ['module'], function(module) { module.exports = "<template><h1>${message}</h1><div><input type=\"text\" name=\"firstname\"><br><button click.delegate=\"xor('weg')\">XOR!</button></div></template>"; });
+define('text!app.html', ['module'], function(module) { module.exports = "<template><h1>${message}</h1><div><input type=\"text\" value.bind=\"email\"><br><br><button click.delegate=\"xor(email)\">XOR!</button></div></template>"; });
 //# sourceMappingURL=app-bundle.js.map

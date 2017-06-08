@@ -1,8 +1,9 @@
 <template>
   <h1>${message}</h1>
   <div>
-    <input type="text" name="firstname">
+    <input type="text" value.bind="email">
     <br>
-    <button click.delegate="xor('weg')">XOR!</button>
+    <br>
+    <button click.delegate="xor(email)">XOR!</button>
   </div>
 </template>
